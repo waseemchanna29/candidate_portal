@@ -1161,3 +1161,38 @@ img { max-width: 100%; }
 
 .toggle-switch input:checked ~ .toggle-track { background: var(--success); }
 .toggle-switch input:checked ~ .toggle-track::after { transform: translateX(18px); }
+
+
+/* ===== BATCHES ===== */
+.badge-warning { background: rgba(255,193,7,0.15);  color: #856404; }
+.badge-info    { background: rgba(13,202,240,0.13); color: #055160; }
+
+.batch-seats-bar-wrap {
+    background: var(--border);
+    border-radius: 20px;
+    height: 8px;
+    overflow: hidden;
+    margin-top: 4px;
+}
+
+.batch-seats-bar {
+    height: 100%;
+    border-radius: 20px;
+    transition: width 0.4s ease;
+}
+
+.batch-seats-bar.low    { background: var(--success); }
+.batch-seats-bar.medium { background: var(--warning); }
+.batch-seats-bar.high   { background: var(--danger); }
+
+.waitlist-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0.28rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: rgba(255,193,7,0.15);
+    color: #856404;
+}

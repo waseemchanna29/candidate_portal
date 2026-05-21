@@ -12,6 +12,7 @@ class Candidate extends Model
     protected $fillable = [
         'user_id',
         'course_id',
+        'batch_id',
         'full_name',
         'phone',
         'cnic',
@@ -53,5 +54,10 @@ class Candidate extends Model
     public function course()
     {
         return $this->belongsTo(Course::class);
+    }
+
+    public function batch()
+    {
+        return $this->belongsTo(Batch::class);
     }
 }

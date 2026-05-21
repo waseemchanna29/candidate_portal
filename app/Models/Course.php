@@ -29,4 +29,8 @@ class Course extends Model
     {
         return $this->belongsTo(PricingModel::class);
     }
+    public function batches()
+{
+    return $this->hasMany(Batch::class);
+}
 }

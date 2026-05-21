@@ -9,7 +9,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $candidate = Auth::user()->candidate()->with(['educations', 'experiences', 'paymentReceipt'])->first();
+       $candidate = Auth::user()->candidate()->with(['educations', 'experiences', 'paymentReceipt', 'course.pricingModel', 'batch'])->first();
         return view('candidate.dashboard', compact('candidate'));
     }
 }

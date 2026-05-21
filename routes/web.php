@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Candidate\DashboardController as CandidateDashboard;
 use App\Http\Controllers\Admin\PricingModelController;
+use App\Http\Controllers\Admin\BatchController;
 use Illuminate\Support\Facades\Route;
 
 // Root redirect
@@ -41,4 +42,10 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::resource('pricing-models', PricingModelController::class);
     Route::post('/pricing-models/{pricingModel}/toggle', [PricingModelController::class, 'toggleStatus'])
         ->name('pricing-models.toggle');
+        
+    Route::resource('batches', BatchController::class);
+    Route::post('/batches/{batch}/add-seats', [BatchController::class, 'addSeats'])->name('batches.add-seats');
+
+    Route::post('/batches/{batch}/promote/{candidate}', [BatchController::class, 'promoteFromWaitlist'])
+     ->name('batches.promote');
 });

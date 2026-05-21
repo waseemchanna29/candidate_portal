@@ -109,6 +109,34 @@
                         </div>
                     </div>
                 @endif
+                @if ($candidate->batch)
+                    <div style="margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border);">
+                        <span class="profile-meta-label">Batch</span>
+                        <div style="margin-top:6px; display:flex; align-items:center; gap:0.8rem; flex-wrap:wrap;">
+                            <strong style="font-family:monospace; font-size:1.05rem; color:var(--primary);">
+                                {{ $candidate->batch->batch_label }}
+                            </strong>
+                            <span class="badge {{ $candidate->batch->status_badge_class }}">
+                                {{ ucfirst(str_replace('_', ' ', $candidate->batch->status)) }}
+                            </span>
+                            @if ($candidate->batch->start_date)
+                                <span style="color:var(--text-muted); font-size:0.88rem;">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    Starts {{ $candidate->batch->start_date->format('d M, Y') }}
+                                </span>
+                            @endif
+                        </div>
+                        @if ($candidate->is_waitlisted)
+                            <div class="alert alert-warning" style="margin-top:0.8rem; margin-bottom:0;">
+                                <i class="fas fa-hourglass-half"></i>
+                                <div>
+                                    <strong>You are on the waiting list</strong> for this batch.
+                                    You will be notified when a seat becomes available.
+                                </div>
+                            </div>
+                        @endif
+                    </div>
+                @endif
             </div>
         </div>
 

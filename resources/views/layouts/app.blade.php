@@ -38,6 +38,10 @@
                         class="sidebar-nav-link {{ request()->routeIs('admin.pricing-models.*') ? 'active' : '' }}">
                         <i class="fas fa-tags"></i> Pricing Models
                     </a>
+                    <a href="{{ route('admin.batches.index') }}"
+                        class="sidebar-nav-link {{ request()->routeIs('admin.batches.*') ? 'active' : '' }}">
+                        <i class="fa-layer-group fas"></i> Batches
+                    </a>
                     <a href="{{ route('admin.candidates.index', ['status' => 'pending']) }}"
                         class="sidebar-nav-link {{ request()->query('status') === 'pending' ? 'active' : '' }}">
                         <i class="fas fa-clock"></i> Pending Review
